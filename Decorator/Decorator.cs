@@ -5,17 +5,25 @@ using System.Text;
 namespace Decorator
 {
     /// <summary>
-    /// 飲料
+    /// 飲料超類別
     /// </summary>
     public abstract class Beverage
     {
         public string description = "Unknown Beverage";
 
+        /// <summary>
+        /// 取得描述
+        /// </summary>
+        /// <returns></returns>
         public virtual string GetDescription()
         {
             return this.description;
         }
 
+        /// <summary>
+        /// 取得花費
+        /// </summary>
+        /// <returns></returns>
         public abstract double GetCost();
     }
 
@@ -45,10 +53,18 @@ namespace Decorator
         }
     }
 
+    /// <summary>
+    /// 裝飾者抽象類別
+    /// </summary>
     public abstract class CondimentDecorator : Beverage
     {
+        public abstract override string GetDescription();
     }
 
+
+    /// <summary>
+    /// 裝飾者具象類別
+    /// </summary>
     public class Cream : CondimentDecorator
     {
         Beverage beverage;
@@ -58,6 +74,10 @@ namespace Decorator
             this.beverage = newBeverage;
         }
 
+        /// <summary>
+        /// 由於是Virtual可複寫或可不複寫 超類別本身已經有方法了~
+        /// </summary>
+        /// <returns></returns>
         public override string GetDescription()
         {
             return this.beverage.GetDescription() + ", Cream " +

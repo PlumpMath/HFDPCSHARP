@@ -16,12 +16,12 @@ namespace Decorator
 
         public string ReadToEnd()
         {
-            return (myTextReader.ReadToEnd().ToUpper());
+            
+           // string path = "";
+           //// example
+           //UpperCaseTextReader reader =new UpperCaseTextReader(new TextReader(new FileStream(path)));
 
-            // example
-            //UpperCaseTextReader reader =
-            //    new UpperCaseTextReader(new TextReader(
-            //        new FileStream(path)));
+            return (myTextReader.ReadToEnd().ToUpper());
         }
     }
 
@@ -30,28 +30,16 @@ namespace Decorator
         static void Main(string[] args)
         {
             Beverage bev = new AfricanBlend();
-            Console.WriteLine(
-                String.Format("{0} - ${1}",
-                    bev.GetDescription(),
-                    bev.GetCost()));
+            Console.WriteLine(String.Format("{0} - ${1}",bev.GetDescription(),bev.GetCost()));
 
             bev = new HouseBlend();
-            Console.WriteLine(
-                String.Format("{0} - ${1}",
-                    bev.GetDescription(),
-                    bev.GetCost()));
+            Console.WriteLine(String.Format("{0} - ${1}",bev.GetDescription(),bev.GetCost()));
 
             bev = new Cream(bev);
-            Console.WriteLine(
-                String.Format("{0} - ${1}",
-                    bev.GetDescription(),
-                    bev.GetCost()));
+            Console.WriteLine(String.Format("{0} - ${1}",bev.GetDescription(),bev.GetCost()));
 
             bev = new Cream(bev);
-            Console.WriteLine(
-                String.Format("{0} - ${1}",
-                    bev.GetDescription(),
-                    bev.GetCost()));
+            Console.WriteLine(String.Format("{0} - ${1}",bev.GetDescription(),bev.GetCost()));
             Console.ReadLine();
         }
     }
