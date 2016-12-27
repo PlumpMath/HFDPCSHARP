@@ -4,6 +4,9 @@ using System.Text;
 
 namespace Decorator
 {
+    /// <summary>
+    /// 飲料
+    /// </summary>
     public abstract class Beverage
     {
         public string description = "Unknown Beverage";
