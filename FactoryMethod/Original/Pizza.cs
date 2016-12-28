@@ -1,41 +1,46 @@
 ﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.Text;
 
-namespace AbstractFactory
+namespace FactoryMethod
 {
+    /// <summary>
+    /// 比薩的抽象類別
+    /// </summary>
     public abstract class Pizza
     {
         /// <summary>
         /// 名稱
         /// </summary>
-        public string name;
+        protected string name;
 
         /// <summary>
-        /// 麵團
+        /// 麵團型態
         /// </summary>
-        protected Dough dough;
+        protected string dough;
 
         /// <summary>
-        /// 醬料
+        /// 醬汁型態
         /// </summary>
-        protected Sauce sauce;
+        protected string sauce;
 
         /// <summary>
-        /// 起司
+        /// 餡料組
         /// </summary>
-        protected Cheese cheese;
+        protected ArrayList toppings = new ArrayList();
 
         /// <summary>
-        /// 準備
+        /// 準備方法
         /// </summary>
         public virtual void Prepare()
         {
+
             Console.WriteLine("Standard preparation technique.");
         }
 
         /// <summary>
-        /// 烘培
+        /// 烹調方法
         /// </summary>
         public virtual void Bake()
         {
@@ -43,7 +48,7 @@ namespace AbstractFactory
         }
 
         /// <summary>
-        /// 裁切
+        /// 切法
         /// </summary>
         public virtual void Cut()
         {
@@ -51,7 +56,7 @@ namespace AbstractFactory
         }
 
         /// <summary>
-        /// 裝箱
+        /// 包裝方法
         /// </summary>
         public virtual void Box()
         {

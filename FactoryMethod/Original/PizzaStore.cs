@@ -2,10 +2,15 @@
 using System.Collections.Generic;
 using System.Text;
 
-namespace SimpleFactory
+namespace FactoryMethod
 {
     public abstract class PizzaStore
     {
+        /// <summary>
+        /// 訂購Pizza(內含呼叫製造Pizza的方法)
+        /// </summary>
+        /// <param name="pizzaType"></param>
+        /// <returns></returns>
         public Pizza OrderPizza(string pizzaType)
         {
             Pizza pizza = CreatePizza(pizzaType);
@@ -18,6 +23,11 @@ namespace SimpleFactory
             return pizza;
         }
 
+        /// <summary>
+        /// 強制複寫製造Pizza方法
+        /// </summary>
+        /// <param name="type">製造何種型態的比薩</param>
+        /// <returns></returns>
         protected abstract Pizza CreatePizza(string type);
     }
 

@@ -2,9 +2,9 @@
 using System.Collections.Generic;
 using System.Text;
 
-namespace SimpleFactory
+namespace AbstractFactory
 {
-    public abstract class PizzaStore
+    public abstract class AbstractPizzaStore
     {
         public Pizza OrderPizza(string pizzaType)
         {
@@ -21,16 +21,17 @@ namespace SimpleFactory
         protected abstract Pizza CreatePizza(string type);
     }
 
-    public class PortlandPizzaStore : PizzaStore
+    public class PortlandPizzaStore : AbstractPizzaStore
     {
         // portland-style preparation for all pizzas
         protected override Pizza CreatePizza(string type)
         {
             Pizza pizza = null;
-            IIngredientFactory ingredientFactory =
-                new PortlandIngredientFactory();
+            IIngredientFactory ingredientFactory = new PortlandIngredientFactory();
 
             if (type == "Cheese")
+
+
                 pizza = new CheesePizza(ingredientFactory);
             else if (type == "Clam")
                 pizza = new ClamPizza(ingredientFactory);
@@ -41,7 +42,7 @@ namespace SimpleFactory
         }
     }
 
-    public class HillsboroPizzaStore : PizzaStore
+    public class HillsboroPizzaStore : AbstractPizzaStore
     {
         // hillsboro-style preparation for all pizzas
         protected override Pizza CreatePizza(string type)
@@ -57,6 +58,29 @@ namespace SimpleFactory
             else if (type == "Suede")
                 pizza = new ShoePizza(ingredientFactory);
 
+            return pizza;
+        }
+    }
+
+    public class TaiwanPizzaStore : AbstractPizzaStore
+    {
+        protected override Pizza CreatePizza(string type)
+        {
+            Pizza pizza = null;
+            IIngredientFactory ingredientFactory = new TaiwanIngredientFactory();
+
+            if (type == "Cheese")
+            {
+                pizza = new CheesePizza(ingredientFactory);
+            }
+            else if(type == "Clam")
+            {
+                pizza = new ClamPizza(ingredientFactory);
+            }
+            else if (type == "Suede")
+            {
+                    pizza = new ShoePizza(ingredientFactory);
+            }
             return pizza;
         }
     }

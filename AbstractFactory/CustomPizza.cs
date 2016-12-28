@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.Text;
 
-namespace SimpleFactory
+namespace AbstractFactory
 {
     class CheesePizza : Pizza
     {
@@ -13,12 +13,16 @@ namespace SimpleFactory
             this.ingredientFactory = customIngredientFactory;
         }
 
+
         public override void Prepare()
         {
+            dough = this.ingredientFactory.CreateDough();
+            sauce = this.ingredientFactory.CreateSauce();
+            cheese = this.ingredientFactory.CreateCheese();
             Console.WriteLine("Making custom cheese pizza.");
-            this.ingredientFactory.CreateDough();
-            this.ingredientFactory.CreateSauce();
-            this.ingredientFactory.CreateCheese();
+            Console.WriteLine(dough.partname);
+            Console.WriteLine(sauce.partname);
+            Console.WriteLine(cheese.partname);
         }
     }
 
@@ -33,6 +37,9 @@ namespace SimpleFactory
 
         public override void Prepare()
         {
+            dough = this.ingredientFactory.CreateDough();
+            sauce = this.ingredientFactory.CreateSauce();
+            cheese = this.ingredientFactory.CreateCheese();
             Console.WriteLine("Making custom sea-creature pizza.");
             this.ingredientFactory.CreateDough();
             this.ingredientFactory.CreateSauce();

@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.Text;
 
-namespace SimpleFactory
+namespace FactoryMethod
 {
     class PortlandStyleCheesePizza : Pizza
     {

@@ -2,26 +2,15 @@
 using System.Collections.Generic;
 using System.Text;
 
-namespace SimpleFactory
+namespace AbstractFactory
 {
     public interface IIngredientFactory
     {
-        Dough CreateDough();
-        Sauce CreateSauce();
-        Cheese CreateCheese();
+       Dough CreateDough();
+       Sauce CreateSauce();
+       Cheese CreateCheese();
     }
 
-    public class Dough
-    {
-    }
-
-    public class Sauce
-    {
-    }
-
-    public class Cheese
-    {
-    }
 
     public class PortlandIngredientFactory : IIngredientFactory
     {
@@ -71,6 +60,43 @@ namespace SimpleFactory
         }
 
         #endregion
+    }
+
+
+    public class TaiwanIngredientFactory : IIngredientFactory
+    {
+        public Cheese CreateCheese()
+        {
+            return  new MegaCheese("台北");
+        }
+
+        public Dough CreateDough()
+        {
+           return  new MegaDough("台北");
+        }
+
+        public Sauce CreateSauce()
+        {
+            return  new MegaSauce("台北");
+        }
+    }
+
+    public class ChinaIngredientFactory : IIngredientFactory
+    {
+        public Cheese CreateCheese()
+        {
+            return new GigaCheese("台北");
+        }
+
+        public Dough CreateDough()
+        {
+            return new GigaDough("台北");
+        }
+
+        public Sauce CreateSauce()
+        {
+            return new GigaSauce("台北");
+        }
     }
 
 }

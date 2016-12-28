@@ -62,12 +62,24 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Assembly\Wireless3G.cs" />
+    <Compile Include="CellPhone\AbstractCellPhone.cs" />
+    <Compile Include="Store\AbstractCellPhoneStore.cs" />
+    <Compile Include="CellPhone\caBusinessCellPhone.cs" />
+    <Compile Include="Factory\ICellPhoneAssemblyFactory.cs" />
     <Compile Include="IngredientFactory.cs" />
+    <Compile Include="Assembly\Monitor.cs" />
+    <Compile Include="Assembly\OS.cs" />
     <Compile Include="Pizza.cs" />
     <Compile Include="CustomPizza.cs" />
     <Compile Include="PizzaStore.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Factory\TaiwanCellPhoneAssemblyFactory.cs" />
+    <Compile Include="Store\TaiwanCellPhoneStore.cs" />
+    <Compile Include="Topping.cs" />
+    <Compile Include="CellPhone\twBusiness2CellPhone.cs" />
+    <Compile Include="Assembly\USB.cs" />
   </ItemGroup>
   <ItemGroup>
     <BootstrapperPackage Include="Microsoft.Net.Client.3.5">
